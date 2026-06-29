@@ -359,7 +359,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const data = await response.json();
 
-            const price = 0.0155;
+            const price =
+                data["dog-go-to-the-moon-rune"].usd;
 
             const change =
                 data["dog-go-to-the-moon-rune"].usd_24h_change;
