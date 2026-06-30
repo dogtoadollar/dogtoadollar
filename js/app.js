@@ -6,6 +6,39 @@ document.addEventListener("DOMContentLoaded", () => {
     let hasInitialPriceLoaded = false;
     let mobileViewedPhase = null;
 
+    function waitForImage(src){
+        return new Promise(resolve => {
+            const image = new Image();
+            image.onload = resolve;
+            image.onerror = resolve;
+            image.src = src;
+        });
+    }
+
+    const criticalAssetsReady = Promise.race([
+        Promise.all([
+            document.fonts ? document.fonts.ready : Promise.resolve(),
+            waitForImage("images/full-moon.png"),
+            waitForImage("images/dog-rocket.png"),
+            waitForImage("images/dog-bottom.png")
+        ]),
+        new Promise(resolve => setTimeout(resolve, 2500))
+    ]);
+
+    function hideSiteLoader(){
+        criticalAssetsReady.then(() => {
+            document.body.classList.add("site-loaded");
+
+            setTimeout(() => {
+                const loader = document.getElementById("siteLoader");
+
+                if(loader){
+                    loader.remove();
+                }
+            }, 600);
+        });
+    }
+
     const phaseOrder = [
         "bottom",
         "beginning",
@@ -406,6 +439,7 @@ document.addEventListener("DOMContentLoaded", () => {
             showPhase(currentPhase, false);
 
             document.body.classList.remove("is-loading");
+            hideSiteLoader();
 
             setTimeout(() => {
                 updatePriceDisplay(price, change);
