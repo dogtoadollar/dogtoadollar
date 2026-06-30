@@ -1530,3 +1530,102 @@ body.is-loading .phase-content{
     }
 
 }
+
+/* =====================
+   SITE LOADER
+===================== */
+
+.site-loader{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+    background:#000;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    opacity:1;
+    visibility:visible;
+    transition:opacity .45s ease, visibility .45s ease;
+}
+
+body.site-loaded .site-loader{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.site-loader-inner{
+    text-align:center;
+    position:relative;
+    width:280px;
+    min-height:220px;
+}
+
+.site-loader-art{
+    position:relative;
+    width:180px;
+    height:120px;
+    margin:0 auto 18px;
+}
+
+.site-loader-moon{
+    position: absolute;
+    width: 111px;
+    right: 3px;
+    bottom: -14px;
+    opacity: .9;
+    animation: moonRotate 60s linear infinite;
+}
+
+.site-loader-rocket{
+    position:absolute;
+    width:82px;
+    left:28px;
+    top:22px;
+    animation:loaderRocketFloat 1.8s ease-in-out infinite;
+}
+
+.site-loader-title{
+    font-family:'Nanum Pen Script', cursive;
+    font-size:30px;
+    line-height:1;
+    color:#d9a300;
+    margin-top:8px;
+}
+
+.site-loader-text{
+    font-family:'Nanum Pen Script', cursive;
+    font-size:24px;
+    line-height:1;
+    color:#fff;
+    margin-top:6px;
+    opacity:.85;
+    animation:loaderTextPulse 1.4s ease-in-out infinite;
+}
+
+@keyframes loaderRocketFloat{
+    0%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-8px);
+    }
+    100%{
+        transform:translateY(0);
+    }
+}
+
+@keyframes loaderTextPulse{
+    0%{
+        opacity:.45;
+    }
+    50%{
+        opacity:1;
+    }
+    100%{
+        opacity:.45;
+    }
+}
+
+
