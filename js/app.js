@@ -106,6 +106,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             activeContent.classList.add("active");
 
+            if(isManualClick && window.innerWidth > 768){
+                const contentPanel = document.querySelector(".content-panel");
+
+                if(contentPanel){
+                    contentPanel.scrollIntoView({
+                        behavior:"smooth",
+                        block:"start"
+                    });
+                }
+            }
+
             // If user is just previewing another phase,
             // dim the live progress bars.
             if(isManualClick && phaseId !== currentPhaseId){
