@@ -62,17 +62,22 @@ body{
     width:220px;
     z-index:1;
     pointer-events:none;
-    animation:moonRotate 60s linear forwards;
+    animation:moonRotate 240s linear infinite;
 }
 
-.banner-rocket{
+.banner-rocket-wrap{
     position:absolute;
     right:140px;
     bottom:15px;
-    width:100px;
     z-index:2;
     pointer-events:none;
     animation:rocketLaunch 2.5s ease-out forwards;
+}
+
+.banner-rocket{
+    width:100px;
+    display:block;
+    animation:rocketFloat 6s ease-in-out infinite;
 }
 
 .star{
@@ -80,13 +85,35 @@ body{
     z-index:3;
     pointer-events:none;
     opacity:0;
-    animation:starTwinkle 57.5s ease-in-out forwards;
 }
 
-.star-1{ width:18px; right:117px; bottom:79px; animation-delay:0s; }
-.star-2{ width:14px; right:138px; bottom:81px; animation-delay:1s; }
-.star-3{ width:20px; right:103px; bottom:48px; animation-delay:2s; }
-.star-4{ width:17px; right:119px; bottom:61px; animation-delay:3s; }
+.star-1{
+    width:18px;
+    right:117px;
+    bottom:79px;
+    animation:starTwinkle 41s ease-in-out infinite;
+}
+
+.star-2{
+    width:14px;
+    right:138px;
+    bottom:81px;
+    animation:starTwinkle 53s ease-in-out infinite;
+}
+
+.star-3{
+    width:20px;
+    right:103px;
+    bottom:48px;
+    animation:starTwinkle 47s ease-in-out infinite;
+}
+
+.star-4{
+    width:17px;
+    right:119px;
+    bottom:61px;
+    animation:starTwinkle 61s ease-in-out infinite;
+}
 
 /* MAIN LAYOUT */
 
@@ -737,16 +764,34 @@ position: absolute;
 
 .site-footer.animate-footer .footer-moon{
     opacity:1;
-    animation:moonRotate 60s linear forwards;
+    animation:moonRotate 240s linear infinite;
 }
 
 .site-footer.animate-footer .footer-rocket{
     opacity:1;
-    animation:rocketLaunch 2.5s ease-out forwards;
+    animation:
+        rocketLaunch 2.5s ease-out forwards,
+        rocketFloat 6s ease-in-out 2.5s infinite;
 }
 
-.site-footer.animate-footer .footer-star{
-    animation:starTwinkle 57.5s ease-in-out forwards;
+.site-footer.animate-footer .footer-star-1{
+    opacity:1;
+    animation:starTwinkle 41s ease-in-out infinite;
+}
+
+.site-footer.animate-footer .footer-star-2{
+    opacity:1;
+    animation:starTwinkle 53s ease-in-out infinite;
+}
+
+.site-footer.animate-footer .footer-star-3{
+    opacity:1;
+    animation:starTwinkle 47s ease-in-out infinite;
+}
+
+.site-footer.animate-footer .footer-star-4{
+    opacity:1;
+    animation:starTwinkle 61s ease-in-out infinite;
 }
 
 .timeline-marker{
@@ -995,6 +1040,20 @@ position: absolute;
     }
 }
 
+@keyframes rocketFloat{
+    0%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(-6px);
+    }
+
+    100%{
+        transform:translateY(0);
+    }
+}
+
 @keyframes starTwinkle{
     0%{ opacity:0; }
     5%{ opacity:1; }
@@ -1134,10 +1193,13 @@ body.is-loading .phase-content{
         bottom:-75px;
     }
 
-    .banner-rocket{
-        width:70px;
+    .banner-rocket-wrap{
         right:75px;
         bottom:12px;
+    }
+
+    .banner-rocket{
+        width:70px;
     }
 
     .star{
@@ -1575,7 +1637,7 @@ body.site-loaded .site-loader{
     right: 3px;
     bottom: -14px;
     opacity: .9;
-    animation: moonRotate 60s linear infinite;
+    animation: moonRotate 240s linear infinite;
 }
 
 .site-loader-rocket{
