@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +16,9 @@
     gtag('config', 'G-J57GBJNRJK');
     </script>
     <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="preload" as="image" href="images/dog-rocket.png" fetchpriority="high">
+    <link rel="preload" as="image" href="images/full-moon.png">
+    <link rel="preload" as="image" href="images/dog-bottom.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -53,12 +57,12 @@
         <div class="site-url">www.dogtoadollar.com</div>
     </div>
 
-    <img src="images/full-moon.png" class="banner-moon" alt="">
-    <img src="images/dog-rocket.png" class="banner-rocket" alt="">
-    <img src="images/star1.png" class="star star-1" alt="">
-    <img src="images/star2.png" class="star star-2" alt="">
-    <img src="images/star3.png" class="star star-3" alt="">
-    <img src="images/star4.png" class="star star-4" alt="">
+    <img src="images/full-moon.png" class="banner-moon" alt="Moon" decoding="async">
+    <img src="images/dog-rocket.png" class="banner-rocket" alt="DOG riding a rocket" decoding="async" fetchpriority="high">
+    <img src="images/star1.png" class="star star-1" alt="" decoding="async">
+    <img src="images/star2.png" class="star star-2" alt="" decoding="async">
+    <img src="images/star3.png" class="star star-3" alt="" decoding="async">
+    <img src="images/star4.png" class="star star-4" alt="" decoding="async">
 </header>
 
 <section class="main-content">
@@ -95,10 +99,10 @@
 
         <div class="phase-scene phase-bottom">
             <div class="dog-scene-bottom phase-trigger" data-phase="bottom" role="button" tabindex="0">
-                <img src="images/dog-bottom.png" class="phase-bottom-dog" alt="">
-                <img src="images/bottle.png" class="bottle" alt="">
-                <img src="images/bowl.png" class="bowl" alt="">
-                <img src="images/newspaper.png" class="newspaper" alt="">
+                <img src="images/dog-bottom.png" class="phase-bottom-dog" alt="DOG at the bottom phase" decoding="async" fetchpriority="high">
+                <img src="images/bottle.png" class="bottle" alt="Bottle" decoding="async">
+                <img src="images/bowl.png" class="bowl" alt="Dog bowl" decoding="async">
+                <img src="images/newspaper.png" class="newspaper" alt="Newspaper" decoding="async">
                 <div class="phase-label-bottom">
                     <div class="phase-title">THE BOTTOM</div>
                     <div class="phase-price">$0.0001 - $0.00099</div>
@@ -111,10 +115,10 @@
 
             <div class="timeline-marker">
                 <div class="marker-badge">
-                    <img src="images/arrow.png" class="marker-arrow" alt="">
+                    <img src="images/arrow.png" class="marker-arrow" alt="Current position marker" decoding="async">
                     <div class="marker-text">HERE</div>
                 </div>
-                <img src="images/timeline-dog.png" class="marker-dog" alt="">
+                <img src="images/timeline-dog.png" class="marker-dog" alt="Current DOG position" decoding="async">
             </div>
 
             <button class="timeline-dot dot-1"></button>
@@ -126,9 +130,9 @@
 
         <div class="phase-scene phase-beginning">
             <div class="dog-scene-beginning phase-trigger" data-phase="beginning" role="button" tabindex="0">
-                <img src="images/dog-beginning.png" class="beginning-dog" alt="">
-                <img src="images/books.png" class="books" alt="">
-                <img src="images/flashlight.png" class="flashlight" alt="">
+                <img src="images/dog-beginning.png" class="beginning-dog" alt="DOG beginning the journey" decoding="async" loading="lazy">
+                <img src="images/books.png" class="books" alt="Books" decoding="async" loading="lazy">
+                <img src="images/flashlight.png" class="flashlight" alt="Flashlight" decoding="async" loading="lazy">
                 <div class="phase-label-beginning">
                     <div class="phase-title">THE BEGINNING</div>
                     <div class="phase-price">$0.001 - $0.0099</div>
@@ -141,10 +145,10 @@
 
             <div class="timeline-marker">
                 <div class="marker-badge">
-                    <img src="images/arrow.png" class="marker-arrow" alt="">
+                    <img src="images/arrow.png" class="marker-arrow" alt="Current position marker" decoding="async" loading="lazy">
                     <div class="marker-text">HERE</div>
                 </div>
-                <img src="images/timeline-dog.png" class="marker-dog" alt="">
+                <img src="images/timeline-dog.png" class="marker-dog" alt="Current DOG position" decoding="async" loading="lazy">
             </div>
 
             <button class="timeline-dot dot-1"></button>
@@ -156,9 +160,9 @@
 
         <div class="phase-scene phase-momentum">
             <div class="dog-scene-momentum phase-trigger" data-phase="momentum" role="button" tabindex="0">
-                <img src="images/dog-momentum.png" class="momentum-dog" alt="">
-                <img src="images/dumbells.png" class="dumbells" alt="">
-                <img src="images/ball.png" class="ball" alt="">
+                <img src="images/dog-momentum.png" class="momentum-dog" alt="DOG building momentum" decoding="async" loading="lazy">
+                <img src="images/dumbells.png" class="dumbells" alt="Dumbbells" decoding="async" loading="lazy">
+                <img src="images/ball.png" class="ball" alt="Basketball" decoding="async" loading="lazy">
                 <div class="phase-label-momentum">
                     <div class="phase-title">BUILDING MOMENTUM</div>
                     <div class="phase-price">$0.01 - $0.099</div>
@@ -171,10 +175,10 @@
 
             <div class="timeline-marker">
                 <div class="marker-badge">
-                    <img src="images/arrow.png" class="marker-arrow" alt="">
+                    <img src="images/arrow.png" class="marker-arrow" alt="Current position marker" decoding="async" loading="lazy">
                     <div class="marker-text">HERE</div>
                 </div>
-                <img src="images/timeline-dog.png" class="marker-dog" alt="">
+                <img src="images/timeline-dog.png" class="marker-dog" alt="Current DOG position" decoding="async" loading="lazy">
             </div>
 
             <button class="timeline-dot dot-1"></button>
@@ -186,8 +190,8 @@
 
         <div class="phase-scene phase-skybound">
             <div class="dog-scene-skybound phase-trigger" data-phase="skybound" role="button" tabindex="0">
-                <img src="images/dog-skybound.png" class="skybound-dog" alt="">
-                <img src="images/bird.png" class="bird" alt="">
+                <img src="images/dog-skybound.png" class="skybound-dog" alt="DOG reaching the sky" decoding="async" loading="lazy">
+                <img src="images/bird.png" class="bird" alt="Bird" decoding="async" loading="lazy">
                 <div class="phase-label-skybound">
                     <div class="phase-title">SKYBOUND</div>
                     <div class="phase-price">$0.10 - $0.99</div>
@@ -200,10 +204,10 @@
 
             <div class="timeline-marker">
                 <div class="marker-badge">
-                    <img src="images/arrow.png" class="marker-arrow" alt="">
+                    <img src="images/arrow.png" class="marker-arrow" alt="Current position marker" decoding="async" loading="lazy">
                     <div class="marker-text">HERE</div>
                 </div>
-                <img src="images/timeline-dog.png" class="marker-dog" alt="">
+                <img src="images/timeline-dog.png" class="marker-dog" alt="Current DOG position" decoding="async" loading="lazy">
             </div>
 
             <button class="timeline-dot dot-1"></button>
@@ -215,8 +219,8 @@
 
         <div class="phase-scene phase-moonbound">
             <div class="dog-scene-moonbound phase-trigger" data-phase="moonbound" role="button" tabindex="0">
-                <img src="images/dog-moonbound.png" class="moonbound-dog" alt="">
-                <img src="images/moon.png" class="moon" alt="">
+                <img src="images/dog-moonbound.png" class="moonbound-dog" alt="DOG on the moon" decoding="async" loading="lazy">
+                <img src="images/moon.png" class="moon" alt="Moon" decoding="async" loading="lazy">
                 <div class="phase-label-moonbound">
                     <div class="phase-title">MOONBOUND</div>
                     <div class="phase-price">$1.00+</div>
@@ -241,16 +245,16 @@
 
             <div class="bottom-hero">
                 <div class="bottom-hero-scene">
-                    <img src="images/dog-bottom.png" class="hero-bottom-dog" alt="">
-                    <img src="images/bottle.png" class="hero-bottle" alt="">
-                    <img src="images/bowl.png" class="hero-bowl" alt="">
-                    <img src="images/newspaper.png" class="hero-newspaper" alt="">
+                    <img src="images/dog-bottom.png" class="hero-bottom-dog" alt="DOG at the bottom phase" decoding="async" fetchpriority="high">
+                    <img src="images/bottle.png" class="hero-bottle" alt="Bottle" decoding="async">
+                    <img src="images/bowl.png" class="hero-bowl" alt="Dog bowl" decoding="async">
+                    <img src="images/newspaper.png" class="hero-newspaper" alt="Newspaper" decoding="async">
                 </div>
             </div>
 
             <div class="bottom-quote-section">
                 <div class="bottom-phrase">EVERY MOON MISSION STARTS ON THE GROUND</div>
-                <img src="images/divider.png" class="bottom-divider" alt="">
+                <img src="images/divider.png" class="bottom-divider" alt="" decoding="async" loading="lazy">
             </div>
 
             <div class="phase-info">
@@ -283,15 +287,15 @@
 
             <div class="bottom-hero">
                 <div class="bottom-hero-scene">
-                    <img src="images/dog-beginning.png" class="hero-beginning-dog" alt="">
-                    <img src="images/books.png" class="hero-books" alt="">
-                    <img src="images/flashlight.png" class="hero-flashlight" alt="">
+                    <img src="images/dog-beginning.png" class="hero-beginning-dog" alt="DOG beginning the journey" decoding="async" loading="lazy">
+                    <img src="images/books.png" class="hero-books" alt="Books" decoding="async" loading="lazy">
+                    <img src="images/flashlight.png" class="hero-flashlight" alt="Flashlight" decoding="async" loading="lazy">
                 </div>
             </div>
 
             <div class="bottom-quote-section">
                 <div class="bottom-phrase">SMALL ROOTS GROW THE STRONGEST TREES.</div>
-                <img src="images/divider.png" class="bottom-divider" alt="">
+                <img src="images/divider.png" class="bottom-divider" alt="" decoding="async" loading="lazy">
             </div>
 
             <div class="phase-info">
@@ -325,15 +329,15 @@
 
             <div class="bottom-hero">
                 <div class="bottom-hero-scene">
-                    <img src="images/dog-momentum.png" class="hero-momentum-dog" alt="">
-                    <img src="images/dumbells.png" class="hero-dumbells" alt="">
-                    <img src="images/ball.png" class="hero-ball" alt="">
+                    <img src="images/dog-momentum.png" class="hero-momentum-dog" alt="DOG building momentum" decoding="async" loading="lazy">
+                    <img src="images/dumbells.png" class="hero-dumbells" alt="Dumbbells" decoding="async" loading="lazy">
+                    <img src="images/ball.png" class="hero-ball" alt="Basketball" decoding="async" loading="lazy">
                 </div>
             </div>
 
             <div class="bottom-quote-section">
                 <div class="bottom-phrase">THE WHEELS ARE TURNING NOW</div>
-                <img src="images/divider.png" class="bottom-divider" alt="">
+                <img src="images/divider.png" class="bottom-divider" alt="" decoding="async" loading="lazy">
             </div>
 
             <div class="phase-info">
@@ -367,14 +371,14 @@
 
             <div class="bottom-hero">
                 <div class="bottom-hero-scene">
-                    <img src="images/dog-skybound.png" class="hero-skybound-dog" alt="">
-                    <img src="images/bird.png" class="hero-bird" alt="">
+                    <img src="images/dog-skybound.png" class="hero-skybound-dog" alt="DOG reaching the sky" decoding="async" loading="lazy">
+                    <img src="images/bird.png" class="hero-bird" alt="Bird" decoding="async" loading="lazy">
                 </div>
             </div>
 
             <div class="bottom-quote-section">
                 <div class="bottom-phrase">WHAT ONCE SEEMED DISTANT IS NOW WITHIN REACH</div>
-                <img src="images/divider.png" class="bottom-divider" alt="">
+                <img src="images/divider.png" class="bottom-divider" alt="" decoding="async" loading="lazy">
             </div>
 
             <div class="phase-info">
@@ -408,14 +412,14 @@
 
             <div class="bottom-hero">
                 <div class="bottom-hero-scene">
-                    <img src="images/moon.png" class="hero-moon" alt="">
-                    <img src="images/dog-moonbound.png" class="hero-moonbound-dog" alt="">
+                    <img src="images/moon.png" class="hero-moon" alt="Moon" decoding="async" loading="lazy">
+                    <img src="images/dog-moonbound.png" class="hero-moonbound-dog" alt="DOG on the moon" decoding="async" loading="lazy">
                 </div>
             </div>
 
             <div class="bottom-quote-section">
                 <div class="bottom-phrase">THE STARS WERE ALWAYS CLOSER THAN THEY APPEARED</div>
-                <img src="images/divider.png" class="bottom-divider" alt="">
+                <img src="images/divider.png" class="bottom-divider" alt="" decoding="async" loading="lazy">
             </div>
 
             <div class="phase-info">
@@ -438,11 +442,11 @@
         <div class="belief-section">
             <div class="belief-quote-section">
                 <div class="belief-heading">WHY WE BELIEVE IN DOG</div>
-                <img src="images/divider.png" class="belief-divider" alt="">
+                <img src="images/divider.png" class="belief-divider" alt="" decoding="async" loading="lazy">
             </div>
 
             <div class="belief-item">
-                <img src="images/why-1.png" class="belief-image" alt="">
+                <img src="images/why-1.png" class="belief-image" alt="Native to Bitcoin" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">1. Native to Bitcoin</div>
                     <div class="belief-text">DOG is part of the Bitcoin ecosystem through Runes, giving it exposure to the largest and most established blockchain network in the world.</div>
@@ -450,7 +454,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-2.png" class="belief-image" alt="">
+                <img src="images/why-2.png" class="belief-image" alt="Community Driven" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">2. Community Driven</div>
                     <div class="belief-text">DOG's greatest asset isn't technology, it's the dedicated community that continues to support the project and drive its growth.</div>
@@ -458,7 +462,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-3.png" class="belief-image" alt="">
+                <img src="images/why-3.png" class="belief-image" alt="Fair and widely distributed" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">3. Fair & Widely Distributed</div>
                     <div class="belief-text">Many supporters value DOG's fair and broad distribution, which has helped create a strong foundation for the community.</div>
@@ -466,7 +470,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-4.png" class="belief-image" alt="">
+                <img src="images/why-4.png" class="belief-image" alt="Creator-led vision" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">4. Creator-Led Vision</div>
                     <div class="belief-text">The creator's energy, transparency, and ongoing involvement have helped foster a strong sense of trust, community, and long-term conviction among supporters.</div>
@@ -474,7 +478,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-5.png" class="belief-image" alt="">
+                <img src="images/why-5.png" class="belief-image" alt="Bitcoin's next chapter" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">5. Bitcoin's Next Chapter</div>
                     <div class="belief-text">DOG is part of a new wave of innovation being built directly on Bitcoin. As the Bitcoin ecosystem continues to evolve, DOG is positioned to grow alongside it.</div>
@@ -482,7 +486,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-6.png" class="belief-image" alt="">
+                <img src="images/why-6.png" class="belief-image" alt="Strong holder base" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">6. Strong Holder Base</div>
                     <div class="belief-text">TMany DOG holders are committed for the long run rather than chasing quick profits. That kind of conviction helps create a stronger and more resilient community.</div>
@@ -490,7 +494,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-7.png" class="belief-image" alt="">
+                <img src="images/why-7.png" class="belief-image" alt="Simple mission" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">7. Simple Mission</div>
                     <div class="belief-text">No complicated roadmap. No confusing promises. The mission is simple, memorable, and something anyone can understand: one dollar and beyond.</div>
@@ -498,7 +502,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-8.png" class="belief-image" alt="">
+                <img src="images/why-8.png" class="belief-image" alt="Community creativity" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">8. Community Creativity</div>
                     <div class="belief-text">DOG inspires artists, developers, content creators, and builders to contribute their own ideas. A community that creates together has the potential to achieve much more than any single team.</div>
@@ -506,7 +510,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-9.png" class="belief-image" alt="">
+                <img src="images/why-9.png" class="belief-image" alt="Early opportunity" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">9. Early Opportunity</div>
                     <div class="belief-text">Every successful project had a point where it was still unknown. Many supporters believe DOG is still in the early stages of its journey, giving newcomers the chance to be part of its story.</div>
@@ -514,7 +518,7 @@
             </div>
 
             <div class="belief-item">
-                <img src="images/why-10.png" class="belief-image" alt="">
+                <img src="images/why-10.png" class="belief-image" alt="Built to last" decoding="async" loading="lazy">
                 <div class="belief-content">
                     <div class="belief-title">10. Built to Last</div>
                     <div class="belief-text">DOG isn't focused on short-term excitement. The goal is to continue growing the community and ecosystem over time, creating something that can endure through multiple market cycles.</div>
@@ -534,12 +538,12 @@
         <div class="footer-site-url">www.dogtoadollar.com</div>
         <div class="footer-copyright">© 2026 SK created for the DOG community.</div>
 
-        <img src="images/full-moon.png" class="footer-moon" alt="">
-        <img src="images/dog-rocket.png" class="footer-rocket" alt="">
-        <img src="images/star1.png" class="footer-star footer-star-1" alt="">
-        <img src="images/star2.png" class="footer-star footer-star-2" alt="">
-        <img src="images/star3.png" class="footer-star footer-star-3" alt="">
-        <img src="images/star4.png" class="footer-star footer-star-4" alt="">
+        <img src="images/full-moon.png" class="footer-moon" alt="Moon" decoding="async" loading="lazy">
+        <img src="images/dog-rocket.png" class="footer-rocket" alt="DOG riding a rocket" decoding="async" loading="lazy">
+        <img src="images/star1.png" class="footer-star footer-star-1" alt="" decoding="async" loading="lazy">
+        <img src="images/star2.png" class="footer-star footer-star-2" alt="" decoding="async" loading="lazy">
+        <img src="images/star3.png" class="footer-star footer-star-3" alt="" decoding="async" loading="lazy">
+        <img src="images/star4.png" class="footer-star footer-star-4" alt="" decoding="async" loading="lazy">
     </div>
 
     <div class="footer-right">
