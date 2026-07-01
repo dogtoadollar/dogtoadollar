@@ -646,7 +646,7 @@ position: absolute;
 .site-footer{
     width:100%;
     max-width:1600px;
-    height:210px;
+    min-height:210px;
     margin:0 auto;
     background:#000;
     color:#fff;
@@ -1321,7 +1321,7 @@ body.is-loading .phase-content{
     }
 
     .site-footer{
-        height:145px;
+        min-height:145px;
     }
 
     .footer-left{
