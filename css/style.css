@@ -778,6 +778,27 @@ position: absolute;
     opacity:0;
 }
 
+.footer-follow{
+    margin: 12px 0 18px;
+    color: #04eda2;
+    font-size: 1.35rem;
+    font-family: 'Nanum Pen Script', cursive;
+}
+
+.footer-follow a,
+.footer-follow a:visited{
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 1.35rem;
+    margin-left: 6px;
+    transition: color .2s ease;
+}
+
+.footer-follow a:hover{
+    color: #d9a300;
+}
+
 .site-footer.animate-footer .footer-moon{
     opacity:1;
     animation:moonRotate 240s linear infinite;
