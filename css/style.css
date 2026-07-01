@@ -780,7 +780,7 @@ position: absolute;
 
 .footer-follow{
     margin: 12px 0 18px;
-    color: #04eda2;
+    color: #04c1ed;
     font-size: 1.35rem;
     font-family: 'Nanum Pen Script', cursive;
 }
@@ -1626,6 +1626,15 @@ body.is-loading .phase-content{
         width: 17px;
         left: 91px;
         bottom: 27px;
+    }
+
+    .footer-follow{
+    font-size: 0.95rem;
+    }
+
+    .footer-follow a,
+    .footer-follow a:visited{
+        font-size: 0.95rem;
     }
 
 }
