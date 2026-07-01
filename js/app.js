@@ -92,6 +92,46 @@ document.addEventListener("DOMContentLoaded", () => {
         `
     };
 
+    function clearDesktopPeekMessages(){
+        document.querySelectorAll(".phase-peek-message").forEach(message => {
+            message.innerHTML = "";
+            message.classList.remove("show");
+        });
+    }
+
+    function clearMobilePeekMessage(){
+        const mobilePeek = document.querySelector(".mobile-peek-message");
+
+        if(mobilePeek){
+            mobilePeek.innerHTML = "";
+            mobilePeek.classList.remove("show");
+        }
+    }
+
+    function syncPeekMessagesForViewport(){
+
+        const viewedPhase = mobileViewedPhase || currentPhaseId;
+
+        if(!viewedPhase || !currentPhaseId) return;
+
+        if(window.innerWidth <= 768){
+
+            clearDesktopPeekMessages();
+
+            updateMobilePeekMessage(
+                viewedPhase,
+                viewedPhase !== currentPhaseId
+            );
+
+        }
+        else{
+
+            clearMobilePeekMessage();
+
+        }
+
+    }
+
     function showPhase(phaseId, isManualClick = false){
 
         document.querySelectorAll(".phase-content").forEach(content => {
@@ -117,23 +157,29 @@ document.addEventListener("DOMContentLoaded", () => {
                 }
             }
 
-            // If user is just previewing another phase,
-            // dim the live progress bars.
             if(isManualClick && phaseId !== currentPhaseId){
                 activeContent.classList.add("sneak-peek");
             }
 
-            // Desktop only
             if(window.innerWidth > 768){
+                clearMobilePeekMessage();
                 updatePeekMessage(activeContent, phaseId, isManualClick);
+            }
+            else{
+                clearDesktopPeekMessages();
             }
         }
 
-        // Mobile timeline still always updates
         updateMobileTimelineText(phaseId);
         updateMobileArrows(phaseId);
         updateMobileScenes(phaseId);
-        updateMobilePeekMessage(phaseId, isManualClick);
+
+        if(window.innerWidth <= 768){
+            updateMobilePeekMessage(phaseId, isManualClick);
+        }
+        else{
+            clearMobilePeekMessage();
+        }
 
     }
 
@@ -669,6 +715,10 @@ document.addEventListener("DOMContentLoaded", () => {
         footerObserver.observe(footer);
 
     }
+
+    window.addEventListener("resize", () => {
+        syncPeekMessagesForViewport();
+    });
 
     loadDogPrice();
 
