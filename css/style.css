@@ -641,6 +641,22 @@ position: absolute;
     color:#222;
 }
 
+.belief-text a{
+    font-family: 'Nanum Pen Script', cursive;
+    font-size: 1.35em;
+    font-weight: 700;
+    color: #0066cc;          /* Standard link blue */
+    text-decoration: none;
+    position: relative;
+    top: 3px;                /* Move it down slightly */
+    transition: opacity 0.2s ease;
+}
+
+.belief-text a:hover{
+    color: #004499;
+    text-decoration: underline;
+}
+
 /* FOOTER */
 
 .site-footer{
