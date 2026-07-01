@@ -720,6 +720,28 @@ document.addEventListener("DOMContentLoaded", () => {
         syncPeekMessagesForViewport();
     });
 
+    const creatorIcon = document.getElementById("creator-icon");
+    const leonidasLink = document.getElementById("leonidas-link");
+
+    if (creatorIcon && leonidasLink) {
+        let clicked = false;
+
+        leonidasLink.addEventListener("mouseenter", () => {
+            creatorIcon.src = "images/why-4-mo.png";
+        });
+
+        leonidasLink.addEventListener("mouseleave", () => {
+            if (!clicked) {
+                creatorIcon.src = "images/why-4.png";
+            }
+        });
+
+        leonidasLink.addEventListener("click", () => {
+            clicked = true;
+            creatorIcon.src = "images/why-4-mo.png";
+        });
+    }
+
     loadDogPrice();
 
     setInterval(() => {
