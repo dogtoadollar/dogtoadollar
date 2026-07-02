@@ -742,6 +742,14 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    if (document.body.classList.contains("error-page")) {
+        document.querySelectorAll(".phase-trigger, .timeline-dot, .mobile-timeline-arrow").forEach(item => {
+            item.addEventListener("click", () => {
+                window.location.href = "/";
+            });
+        });
+    }
+
     loadDogPrice();
 
     setInterval(() => {
