@@ -155,13 +155,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const updatedDate = new Date(data.updatedAt);
 
             updatedElement.textContent =
-                `Updated hourly • Last checked ${updatedDate.toLocaleTimeString([], {
+                `Updated every 15 minutes • Last checked ${updatedDate.toLocaleTimeString([], {
                     hour:"numeric",
                     minute:"2-digit"
                 })}`;
         }
         else{
-            updatedElement.textContent = "Updated hourly";
+            updatedElement.textContent = "Updated every 15 minutes";
         }
     }
 
