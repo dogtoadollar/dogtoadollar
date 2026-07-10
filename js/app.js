@@ -2,6 +2,205 @@ console.log("APP JS LOADED");
 
 document.addEventListener("DOMContentLoaded", () => {
 
+
+    const MISSION_FOLLOWERS_ENDPOINT =
+        "https://dog-mission-progress.dogtoadollar.workers.dev";
+
+    const MISSION_LAUNCH_DATE = new Date("2026-06-28T00:00:00");
+
+    function getDaysSinceMissionLaunch(){
+        const now = new Date();
+        const start = new Date(
+            MISSION_LAUNCH_DATE.getFullYear(),
+            MISSION_LAUNCH_DATE.getMonth(),
+            MISSION_LAUNCH_DATE.getDate()
+        );
+        const today = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate()
+        );
+
+        return Math.max(
+            0,
+            Math.floor((today - start) / 86400000)
+        );
+    }
+
+    function useMissionProgressMockData(){
+        return new URLSearchParams(window.location.search)
+            .get("missionMock") === "1";
+    }
+
+    async function loadMissionFollowers(){
+        const section =
+            document.querySelector(".mission-progress");
+
+        const totalElement =
+            document.getElementById("missionFollowersNumber");
+
+        const todayElement =
+            document.getElementById("missionFollowersToday");
+
+        const countriesElement =
+            document.getElementById("missionCountriesReached");
+
+        const daysElement =
+            document.getElementById("missionDaysSinceLaunch");
+
+        const updatedElement =
+            document.getElementById("missionProgressUpdated");
+
+        if(
+            !section ||
+            !totalElement ||
+            !todayElement ||
+            !countriesElement ||
+            !daysElement ||
+            !updatedElement
+        ){
+            return;
+        }
+
+        daysElement.textContent =
+            getDaysSinceMissionLaunch().toLocaleString();
+
+        if(useMissionProgressMockData()){
+            renderMissionProgress({
+                followers:12483,
+                today:27,
+                countries:42,
+                updatedAt:new Date().toISOString()
+            });
+
+            updatedElement.textContent =
+                "Offline preview data • Updated hourly when live";
+
+            return;
+        }
+
+        try{
+            if(MISSION_FOLLOWERS_ENDPOINT.includes("YOUR-WORKER-NAME")){
+                throw new Error(
+                    "Replace the Mission Followers Worker URL in app.js."
+                );
+            }
+
+            const response = await fetch(
+                MISSION_FOLLOWERS_ENDPOINT,
+                {
+                    headers:{
+                        "Accept":"application/json"
+                    }
+                }
+            );
+
+            if(!response.ok){
+                throw new Error(
+                    `Mission Progress request failed: ${response.status}`
+                );
+            }
+
+            const data = await response.json();
+
+            renderMissionProgress(data);
+        }
+        catch(error){
+            console.error("Mission Progress Error:", error);
+
+            section.classList.add("is-error");
+            totalElement.textContent = "—";
+            todayElement.textContent = "—";
+            countriesElement.textContent = "—";
+            updatedElement.textContent =
+                "Mission statistics unavailable";
+        }
+    }
+
+    function renderMissionProgress(data){
+        const section =
+            document.querySelector(".mission-progress");
+
+        const totalElement =
+            document.getElementById("missionFollowersNumber");
+
+        const todayElement =
+            document.getElementById("missionFollowersToday");
+
+        const countriesElement =
+            document.getElementById("missionCountriesReached");
+
+        const updatedElement =
+            document.getElementById("missionProgressUpdated");
+
+        const followers = Number(data.followers);
+        const today = Number(data.today);
+        const countries = Number(data.countries);
+
+        if(
+            !Number.isFinite(followers) ||
+            !Number.isFinite(today) ||
+            !Number.isFinite(countries)
+        ){
+            throw new Error("Mission Progress returned invalid numbers.");
+        }
+
+        section?.classList.remove("is-error");
+
+        animateMissionNumber(totalElement, followers, 1400);
+        animateMissionNumber(todayElement, today, 850, "+");
+        animateMissionNumber(countriesElement, countries, 1000);
+
+        if(data.updatedAt){
+            const updatedDate = new Date(data.updatedAt);
+
+            updatedElement.textContent =
+                `Updated hourly • Last checked ${updatedDate.toLocaleTimeString([], {
+                    hour:"numeric",
+                    minute:"2-digit"
+                })}`;
+        }
+        else{
+            updatedElement.textContent = "Updated hourly";
+        }
+    }
+
+    function animateMissionNumber(
+        element,
+        finalValue,
+        duration = 1000,
+        prefix = ""
+    ){
+        if(!element) return;
+
+        const startTime = performance.now();
+
+        element.classList.remove("is-ready");
+
+        function update(currentTime){
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const easedProgress = 1 - Math.pow(1 - progress, 3);
+            const currentValue = Math.floor(finalValue * easedProgress);
+
+            element.textContent =
+                `${prefix}${currentValue.toLocaleString()}`;
+
+            if(progress < 1){
+                requestAnimationFrame(update);
+            }
+            else{
+                element.textContent =
+                    `${prefix}${finalValue.toLocaleString()}`;
+
+                element.classList.add("is-ready");
+            }
+        }
+
+        requestAnimationFrame(update);
+    }
+
+
     let currentPhaseId = null;
     let hasInitialPriceLoaded = false;
     let mobileViewedPhase = null;
@@ -749,6 +948,8 @@ document.addEventListener("DOMContentLoaded", () => {
             });
         });
     }
+
+    loadMissionFollowers();
 
     loadDogPrice();
 
