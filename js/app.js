@@ -848,7 +848,9 @@ document.addEventListener("DOMContentLoaded", () => {
             Math.min(price * 100, 100);
 
         const activeContent =
-            document.querySelector(".phase-content.active");
+            document.querySelector(
+                `.phase-content[data-phase="${currentPhaseId}"]`
+            )
 
         if(!activeContent) return;
 
