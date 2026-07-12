@@ -2,6 +2,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,6 +23,11 @@
     <link rel="preload" as="image" href="images/dog-rocket.png" fetchpriority="high">
     <link rel="preload" as="image" href="images/full-moon.png">
     <link rel="preload" as="image" href="images/dog-bottom.png">
+    <link rel="preload" as="image" href="images/bg_bottom.png">
+    <link rel="preload" as="image" href="images/bg_beginning.png">
+    <link rel="preload" as="image" href="images/bg_momentum.png">
+    <link rel="preload" as="image" href="images/bg_skybound.png">
+    <link rel="preload" as="image" href="images/bg_moonbound.png">
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -259,11 +266,15 @@
             </div>
 
             <div class="bottom-hero">
-                <div class="bottom-hero-scene">
-                    <img src="images/dog-bottom.png" class="hero-bottom-dog" alt="DOG at the bottom phase" decoding="async" fetchpriority="high">
-                    <img src="images/bottle.png" class="hero-bottle" alt="Bottle" decoding="async">
-                    <img src="images/bowl.png" class="hero-bowl" alt="Dog bowl" decoding="async">
-                    <img src="images/newspaper.png" class="hero-newspaper" alt="Newspaper" decoding="async">
+                <div class="bottom-hero-scene bottom-hero-scene-with-bg">
+                    <img src="images/bg_bottom.png" class="hero-bottom-background" alt="" aria-hidden="true" decoding="async">
+
+                    <div class="hero-bottom-foreground">
+                        <img src="images/dog-bottom.png" class="hero-bottom-dog" alt="DOG at the bottom phase" decoding="async" fetchpriority="high">
+                        <img src="images/bottle.png" class="hero-bottle" alt="Bottle" decoding="async">
+                        <img src="images/bowl.png" class="hero-bowl" alt="Dog bowl" decoding="async">
+                        <img src="images/newspaper.png" class="hero-newspaper" alt="Newspaper" decoding="async">
+                    </div>
                 </div>
             </div>
 
@@ -301,10 +312,14 @@
             </div>
 
             <div class="bottom-hero">
-                <div class="bottom-hero-scene">
-                    <img src="images/dog-beginning.png" class="hero-beginning-dog" alt="DOG beginning the journey" decoding="async" loading="lazy">
-                    <img src="images/books.png" class="hero-books" alt="Books" decoding="async" loading="lazy">
-                    <img src="images/flashlight.png" class="hero-flashlight" alt="Flashlight" decoding="async" loading="lazy">
+                <div class="bottom-hero-scene phase-hero-scene-with-bg">
+                    <img src="images/bg_beginning.png" class="phase-hero-background hero-beginning-background" alt="" aria-hidden="true" decoding="async" loading="lazy">
+
+                    <div class="phase-hero-foreground">
+                        <img src="images/dog-beginning.png" class="hero-beginning-dog" alt="DOG beginning the journey" decoding="async" loading="lazy">
+                        <img src="images/books.png" class="hero-books" alt="Books" decoding="async" loading="lazy">
+                        <img src="images/flashlight.png" class="hero-flashlight" alt="Flashlight" decoding="async" loading="lazy">
+                    </div>
                 </div>
             </div>
 
@@ -343,10 +358,14 @@
             </div>
 
             <div class="bottom-hero">
-                <div class="bottom-hero-scene">
-                    <img src="images/dog-momentum.png" class="hero-momentum-dog" alt="DOG building momentum" decoding="async" loading="lazy">
-                    <img src="images/dumbells.png" class="hero-dumbells" alt="Dumbbells" decoding="async" loading="lazy">
-                    <img src="images/ball.png" class="hero-ball" alt="Basketball" decoding="async" loading="lazy">
+                <div class="bottom-hero-scene phase-hero-scene-with-bg">
+                    <img src="images/bg_momentum.png" class="phase-hero-background hero-momentum-background" alt="" aria-hidden="true" decoding="async" loading="lazy">
+
+                    <div class="phase-hero-foreground">
+                        <img src="images/dog-momentum.png" class="hero-momentum-dog" alt="DOG building momentum" decoding="async" loading="lazy">
+                        <img src="images/dumbells.png" class="hero-dumbells" alt="Dumbbells" decoding="async" loading="lazy">
+                        <img src="images/ball.png" class="hero-ball" alt="Basketball" decoding="async" loading="lazy">
+                    </div>
                 </div>
             </div>
 
@@ -385,9 +404,13 @@
             </div>
 
             <div class="bottom-hero">
-                <div class="bottom-hero-scene">
-                    <img src="images/dog-skybound.png" class="hero-skybound-dog" alt="DOG reaching the sky" decoding="async" loading="lazy">
-                    <img src="images/bird.png" class="hero-bird" alt="Bird" decoding="async" loading="lazy">
+                <div class="bottom-hero-scene phase-hero-scene-with-bg">
+                    <img src="images/bg_skybound.png" class="phase-hero-background hero-skybound-background" alt="" aria-hidden="true" decoding="async" loading="lazy">
+
+                    <div class="phase-hero-foreground">
+                        <img src="images/dog-skybound.png" class="hero-skybound-dog" alt="DOG reaching the sky" decoding="async" loading="lazy">
+                        <img src="images/bird.png" class="hero-bird" alt="Bird" decoding="async" loading="lazy">
+                    </div>
                 </div>
             </div>
 
@@ -426,9 +449,12 @@
             </div>
 
             <div class="bottom-hero">
-                <div class="bottom-hero-scene">
-                    <img src="images/moon.png" class="hero-moon" alt="Moon" decoding="async" loading="lazy">
-                    <img src="images/dog-moonbound.png" class="hero-moonbound-dog" alt="DOG on the moon" decoding="async" loading="lazy">
+                <div class="bottom-hero-scene phase-hero-scene-with-bg">
+                    <img src="images/bg_moonbound.png" class="phase-hero-background hero-moonbound-background" alt="" aria-hidden="true" decoding="async" loading="lazy">
+
+                    <div class="phase-hero-foreground">
+                        <img src="images/dog-moonbound.png" class="hero-moonbound-dog" alt="DOG on the moon" decoding="async" loading="lazy">
+                    </div>
                 </div>
             </div>
 
