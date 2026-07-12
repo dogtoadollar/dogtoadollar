@@ -422,6 +422,83 @@ body{
 
 /* RIGHT HERO - BOTTOM */
 
+.bottom-hero-scene-with-bg{
+    width:620px;
+    overflow:visible;
+    isolation:isolate;
+}
+
+.hero-bottom-background{
+    position:absolute;
+    width:700px;
+    height:auto;
+    left:50%;
+    top:49%;
+    transform:translate(-50%, -50%);
+    z-index:0;
+    opacity:.96;
+    pointer-events:none;
+    user-select:none;
+    filter:brightness(.9) saturate(.95) contrast(.96);
+}
+
+.hero-bottom-foreground{
+    position:absolute;
+    width:520px;
+    height:410px;
+    left:50%;
+    top:0;
+    margin-left:-260px;
+    z-index:2;
+}
+
+/* RIGHT HERO - SHARED PHASE BACKGROUNDS */
+
+.phase-hero-scene-with-bg{
+    width:620px;
+    overflow:visible;
+    isolation:isolate;
+}
+
+.phase-hero-background{
+    position:absolute;
+    width:700px;
+    height:auto;
+    left:50%;
+    top:49%;
+    transform:translate(-50%, -50%);
+    z-index:0;
+    opacity:.96;
+    pointer-events:none;
+    user-select:none;
+}
+
+.phase-hero-foreground{
+    position:absolute;
+    width:520px;
+    height:410px;
+    left:50%;
+    top:0;
+    margin-left:-260px;
+    z-index:2;
+}
+
+.hero-beginning-background{
+    filter:brightness(.96) saturate(.95) contrast(.98);
+}
+
+.hero-momentum-background{
+    filter:brightness(1.02) saturate(1.02) contrast(.98);
+}
+
+.hero-skybound-background{
+    filter:brightness(1.02) saturate(.96) contrast(.96);
+}
+
+.hero-moonbound-background{
+    filter:brightness(.9) saturate(.92) contrast(1.02);
+}
+
 .hero-bottom-dog{
     position:absolute;
     width:420px;
@@ -1166,31 +1243,375 @@ body.is-loading .phase-content{
 }*/
 
 /* =====================
-   HERO DOG FLOAT
+   INDEPENDENT HERO FLOATING
+   Desktop + mobile
 ===================== */
 
-@media (min-width:769px){
-
-    .bottom-hero-scene{
-        animation:heroFloat 6s ease-in-out infinite;
-    }
-
+.hero-bottom-dog,
+.hero-beginning-dog,
+.hero-momentum-dog,
+.hero-skybound-dog,
+.hero-moonbound-dog,
+.hero-bottle,
+.hero-bowl,
+.hero-newspaper,
+.hero-books,
+.hero-flashlight,
+.hero-dumbells,
+.hero-ball,
+.hero-bird{
+    will-change:transform;
+    backface-visibility:hidden;
+    transform-origin:center center;
 }
 
-@keyframes heroFloat{
+/* Each element uses a different path, duration and negative delay so they
+   begin at different points instead of moving together on page load. */
 
-    0%{
-        transform:translateY(0);
+/* BOTTOM PHASE — NATURAL INDIVIDUAL MOVEMENT */
+
+.hero-bottom-dog{
+    animation:bottomDogBreathing 8.5s ease-in-out -2.5s infinite;
+    transform-origin:center bottom;
+}
+
+.hero-bottle{
+    animation:bottomBottleWobble 7s ease-in-out -4s infinite;
+    transform-origin:center bottom;
+}
+
+.hero-bowl{
+    animation:bottomBowlSettle 11s ease-in-out -6s infinite;
+    transform-origin:center bottom;
+}
+
+.hero-newspaper{
+    animation:bottomNewspaperFlutter 6.5s ease-in-out -1.5s infinite;
+    transform-origin:left bottom;
+}
+
+/* BEGINNING PHASE — NATURAL INDIVIDUAL MOVEMENT */
+
+.hero-beginning-dog{
+    animation:beginningDogFocus 8.8s ease-in-out -3s infinite;
+    transform-origin:center bottom;
+}
+
+.hero-books{
+    animation:beginningBooksSettle 12s ease-in-out -7s infinite;
+    transform-origin:center bottom;
+}
+
+.hero-flashlight{
+    animation:beginningFlashlightWobble 7.5s ease-in-out -2.5s infinite;
+    transform-origin:center center;
+}
+
+/* MOMENTUM PHASE — ENERGETIC, GROUNDED MOVEMENT */
+
+.hero-momentum-dog{
+    animation:momentumDogTraining 6.8s ease-in-out -2.4s infinite;
+    transform-origin:center bottom;
+}
+
+.hero-dumbells{
+    animation:momentumDumbbellsSettle 9.5s ease-in-out -5.3s infinite;
+    transform-origin:center bottom;
+}
+
+.hero-ball{
+    animation:momentumBallBounce 4.8s ease-in-out -1.6s infinite;
+    transform-origin:center bottom;
+}
+
+.hero-skybound-dog{ animation:floatDogSkybound 7.1s ease-in-out -4.7s infinite; }
+.hero-bird{ animation:floatBird 4.1s ease-in-out -2.5s infinite; }
+
+/* MOONBOUND PHASE — SLOW ZERO-GRAVITY DRIFT */
+
+.hero-moonbound-dog{
+    animation:moonboundDogDrift 11.5s ease-in-out -4.5s infinite;
+    transform-origin:center center;
+}
+
+/* DOG — subtle breathing and tiny body movement */
+@keyframes bottomDogBreathing{
+    0%,100%{
+        transform:translate3d(0,0,0) rotate(0deg) scale(1);
+    }
+
+    30%{
+        transform:translate3d(-1px,-2px,0) rotate(-0.15deg) scale(1.003);
+    }
+
+    55%{
+        transform:translate3d(1px,-4px,0) rotate(0.12deg) scale(1.006);
+    }
+
+    78%{
+        transform:translate3d(0,-1px,0) rotate(0deg) scale(1.002);
+    }
+}
+
+
+/* BOTTLE — rests most of the time, then gives a small uneven wobble */
+@keyframes bottomBottleWobble{
+    0%,35%,100%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+
+    42%{
+        transform:translate3d(-2px,0,0) rotate(-2deg);
+    }
+
+    49%{
+        transform:translate3d(2px,-1px,0) rotate(1.5deg);
+    }
+
+    56%{
+        transform:translate3d(-1px,0,0) rotate(-0.8deg);
+    }
+
+    63%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+}
+
+
+/* BOWL — heavy object, nearly still */
+@keyframes bottomBowlSettle{
+    0%,40%,100%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+
+    48%{
+        transform:translate3d(1px,-1px,0) rotate(0.2deg);
+    }
+
+    56%{
+        transform:translate3d(-1px,0,0) rotate(-0.15deg);
+    }
+
+    64%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+}
+
+
+/* NEWSPAPER — gentle loose-paper flutter */
+@keyframes bottomNewspaperFlutter{
+    0%,100%{
+        transform:translate3d(0,0,0) rotate(0deg) skewX(0deg);
+    }
+
+    22%{
+        transform:translate3d(-2px,-1px,0) rotate(-0.5deg) skewX(-0.3deg);
+    }
+
+    46%{
+        transform:translate3d(3px,-3px,0) rotate(0.8deg) skewX(0.5deg);
+    }
+
+    68%{
+        transform:translate3d(-1px,-1px,0) rotate(-0.3deg) skewX(-0.2deg);
+    }
+
+    84%{
+        transform:translate3d(1px,-2px,0) rotate(0.35deg) skewX(0.2deg);
+    }
+}
+
+/* DOG — subtle breathing with a tiny forward lean */
+@keyframes beginningDogFocus{
+    0%,100%{
+        transform:translate3d(0,0,0) rotate(0deg) scale(1);
+    }
+
+    28%{
+        transform:translate3d(-1px,-2px,0) rotate(-0.12deg) scale(1.003);
+    }
+
+    52%{
+        transform:translate3d(1px,-4px,0) rotate(0.18deg) scale(1.006);
+    }
+
+    74%{
+        transform:translate3d(0,-2px,0) rotate(0deg) scale(1.002);
+    }
+}
+
+
+/* BOOKS — heavy and grounded, with a tiny settling motion */
+@keyframes beginningBooksSettle{
+    0%,42%,100%{
+        transform:translate3d(0,0,0) rotate(0deg);
     }
 
     50%{
-        transform:translateY(-6px);
+        transform:translate3d(-1px,-1px,0) rotate(-0.2deg);
     }
 
-    100%{
-        transform:translateY(0);
+    58%{
+        transform:translate3d(1px,0,0) rotate(0.15deg);
     }
 
+    66%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+}
+
+
+/* FLASHLIGHT — light handheld-style wobble */
+@keyframes beginningFlashlightWobble{
+    0%,32%,100%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+
+    40%{
+        transform:translate3d(2px,-1px,0) rotate(1.2deg);
+    }
+
+    48%{
+        transform:translate3d(-1px,-2px,0) rotate(-0.8deg);
+    }
+
+    57%{
+        transform:translate3d(1px,0,0) rotate(0.45deg);
+    }
+
+    66%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+}
+
+/* DOG — controlled workout rhythm, more active than earlier phases */
+@keyframes momentumDogTraining{
+    0%,100%{
+        transform:translate3d(0,0,0) rotate(0deg) scale(1);
+    }
+
+    20%{
+        transform:translate3d(-1px,-3px,0) rotate(-0.2deg) scale(1.003);
+    }
+
+    42%{
+        transform:translate3d(2px,-7px,0) rotate(0.35deg) scale(1.007);
+    }
+
+    62%{
+        transform:translate3d(-1px,-3px,0) rotate(-0.15deg) scale(1.003);
+    }
+
+    80%{
+        transform:translate3d(1px,-5px,0) rotate(0.2deg) scale(1.005);
+    }
+}
+
+
+/* DUMBBELLS — heavy, mostly still, with a small grounded settle */
+@keyframes momentumDumbbellsSettle{
+    0%,38%,100%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+
+    45%{
+        transform:translate3d(-1px,-1px,0) rotate(-0.25deg);
+    }
+
+    52%{
+        transform:translate3d(1px,0,0) rotate(0.18deg);
+    }
+
+    59%{
+        transform:translate3d(0,0,0) rotate(0deg);
+    }
+}
+
+
+/* BALL — light bounce with slight rolling rotation */
+@keyframes momentumBallBounce{
+    0%,100%{
+        transform:translate3d(0,0,0) rotate(0deg) scaleY(1);
+    }
+
+    12%{
+        transform:translate3d(1px,-2px,0) rotate(2deg) scaleY(1);
+    }
+
+    35%{
+        transform:translate3d(5px,-13px,0) rotate(8deg) scaleY(1.015);
+    }
+
+    58%{
+        transform:translate3d(2px,-4px,0) rotate(13deg) scaleY(1);
+    }
+
+    68%{
+        transform:translate3d(0,1px,0) rotate(15deg) scaleY(.97);
+    }
+
+    78%{
+        transform:translate3d(-1px,-3px,0) rotate(12deg) scaleY(1.01);
+    }
+
+    90%{
+        transform:translate3d(0,0,0) rotate(4deg) scaleY(1);
+    }
+}
+
+@keyframes floatDogSkybound{
+    0%,100%{ transform:translate3d(0,0,0) rotate(0deg); }
+    33%{ transform:translate3d(4px,-8px,0) rotate(.35deg); }
+    71%{ transform:translate3d(-3px,-13px,0) rotate(-.3deg); }
+}
+
+@keyframes floatBird{
+    0%,100%{ transform:translate3d(0,0,0) rotate(-1deg); }
+    22%{ transform:translate3d(11px,-15px,0) rotate(3deg); }
+    57%{ transform:translate3d(-5px,-7px,0) rotate(-2deg); }
+    79%{ transform:translate3d(7px,-18px,0) rotate(2deg); }
+}
+
+/* DOG — slow floating movement in low gravity */
+@keyframes moonboundDogDrift{
+    0%,100%{
+        transform:translate3d(0,0,0) rotate(0deg) scale(1);
+    }
+
+    22%{
+        transform:translate3d(-3px,-5px,0) rotate(-0.4deg) scale(1.002);
+    }
+
+    48%{
+        transform:translate3d(4px,-11px,0) rotate(0.7deg) scale(1.004);
+    }
+
+    72%{
+        transform:translate3d(1px,-6px,0) rotate(0.15deg) scale(1.002);
+    }
+
+    88%{
+        transform:translate3d(-2px,-3px,0) rotate(-0.2deg) scale(1.001);
+    }
+}
+
+
+@media (prefers-reduced-motion:reduce){
+    .hero-bottom-dog,
+    .hero-beginning-dog,
+    .hero-momentum-dog,
+    .hero-skybound-dog,
+    .hero-moonbound-dog,
+    .hero-bottle,
+    .hero-bowl,
+    .hero-newspaper,
+    .hero-books,
+    .hero-flashlight,
+    .hero-dumbells,
+    .hero-ball,
+    .hero-bird{
+        animation:none !important;
+    }
 }
 
 /* =====================
@@ -1303,6 +1724,23 @@ body.is-loading .phase-content{
     .bottom-hero-scene{
         transform:scale(.68);
         transform-origin:top center;
+    }
+
+    .bottom-hero-scene-with-bg,
+    .phase-hero-scene-with-bg{
+        width:620px;
+        height:410px;
+    }
+
+    .hero-bottom-background,
+    .phase-hero-background{
+        width:700px;
+        top:49%;
+    }
+
+    .hero-bottom-foreground{
+        width:520px;
+        height:410px;
     }
 
     .phase-info{
