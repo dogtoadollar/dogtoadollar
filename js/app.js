@@ -951,12 +951,48 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    loadMissionFollowers();
+        loadMissionFollowers();
 
     loadDogPrice();
 
     setInterval(() => {
         loadDogPrice();
     }, 60000);
+
+
+    // Rocket flame animation
+    const rocketFrames = [
+        "images/dog-rocket.png",
+        "images/dog-rocket2.png",
+        "images/dog-rocket3.png",
+        "images/dog-rocket2.png"
+    ];
+
+    // Preload frames
+    rocketFrames.forEach(src => {
+        const img = new Image();
+        img.src = src;
+    });
+
+    // Animate both rockets
+    const rockets = [
+        document.getElementById("rocketDog"),
+        document.getElementById("footerRocketDog"),
+        document.getElementById("loaderRocketDog")
+    ];
+
+    let frame = 0;
+
+    setInterval(() => {
+
+        frame = (frame + 1) % rocketFrames.length;
+
+        rockets.forEach(rocket => {
+            if (rocket) {
+                rocket.src = rocketFrames[frame];
+            }
+        });
+
+    }, 75);
 
 });
