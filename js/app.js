@@ -943,7 +943,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    if (document.body.classList.contains("error-page")) {
+        if (document.body.classList.contains("error-page")) {
         document.querySelectorAll(".phase-trigger, .timeline-dot, .mobile-timeline-arrow").forEach(item => {
             item.addEventListener("click", () => {
                 window.location.href = "/";
@@ -951,7 +951,57 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-        loadMissionFollowers();
+    // About DOG banner close button
+
+
+    const aboutDogBanner = document.getElementById("aboutDogBanner");
+    const aboutDogBannerClose = document.querySelector(".about-dog-banner-close");
+
+    const bannerVersion = "1";
+
+    if (aboutDogBanner) {
+
+        if (localStorage.getItem("aboutDogBanner") === bannerVersion) {
+            aboutDogBanner.style.display = "none";
+        }
+
+        aboutDogBannerClose?.addEventListener("click", () => {
+
+            localStorage.setItem("aboutDogBanner", bannerVersion);
+
+            aboutDogBanner.style.display = "none";
+
+        });
+
+    }
+
+    const scrollHint = document.getElementById("timelineScrollHint");
+
+    if(scrollHint){
+
+        if(localStorage.getItem("timelineHint")){
+            scrollHint.classList.add("hide");
+
+            setTimeout(() => {
+                scrollHint.style.display = "none";
+            }, 600);
+        }
+
+        document.querySelector(".timeline-panel").addEventListener("wheel", () => {
+
+            scrollHint.classList.add("hide");
+
+            setTimeout(() => {
+                scrollHint.style.display = "none";
+            }, 600);
+
+            localStorage.setItem("timelineHint","1");
+
+        }, { once:true });
+
+    }
+
+    loadMissionFollowers();
 
     loadDogPrice();
 
