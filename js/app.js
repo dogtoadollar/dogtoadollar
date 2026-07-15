@@ -217,11 +217,20 @@ document.addEventListener("DOMContentLoaded", () => {
     const criticalAssetsReady = Promise.race([
         Promise.all([
             document.fonts ? document.fonts.ready : Promise.resolve(),
+
             waitForImage("images/full-moon.png"),
             waitForImage("images/dog-rocket.png"),
-            waitForImage("images/dog-bottom.png")
+            waitForImage("images/dog-rocket2.png"),
+            waitForImage("images/dog-rocket3.png"),
+
+            waitForImage("images/bg_bottom.png"),
+            waitForImage("images/bg_beginning.png"),
+            waitForImage("images/bg_momentum.png"),
+            waitForImage("images/bg_skybound.png"),
+            waitForImage("images/bg_moonbound.png")
         ]),
-        new Promise(resolve => setTimeout(resolve, 2500))
+
+        new Promise(resolve => setTimeout(resolve, 10000))
     ]);
 
     function hideSiteLoader(){
