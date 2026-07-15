@@ -2501,3 +2501,26 @@ body.site-loaded .site-loader{
         display:none;
     }
 }
+
+/* STOP PHASE BACKGROUNDS FROM OVERLAPPING THE TIMELINE */
+
+html,
+body{
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+.timeline-panel,
+.content-panel{
+    min-width:0;
+}
+
+.content-panel{
+    overflow:hidden;
+}
+
+.phase-content,
+.bottom-hero{
+    max-width:100%;
+    overflow:hidden;
+}
