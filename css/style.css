@@ -2286,3 +2286,218 @@ body.site-loaded .site-loader{
         font-size:29px;
     }
 }
+
+
+/* =====================
+   ABOUT DOG TOP BANNER
+===================== */
+
+.about-dog-banner{
+    width:100%;
+    max-width:1600px;
+    margin:0 auto;
+    padding:7px 8px 6px;
+    background:#000;
+}
+
+.about-dog-banner-inner{
+    min-height:88px;
+    display:grid;
+    grid-template-columns:auto 1px minmax(0, 1fr) auto;
+    align-items:center;
+    gap:24px;
+    padding:14px 24px;
+    color:#090909;
+    background:linear-gradient(110deg, #ffc53d 0%, #ffe08a 47%, #ffc83e 100%);
+    border:1px solid rgba(255,255,255,.32);
+    border-radius:11px;
+    box-shadow:0 5px 15px rgba(0,0,0,.42), inset 0 1px 0 rgba(255,255,255,.35);
+    overflow:hidden;
+    transition:opacity .28s ease, transform .28s ease, max-height .35s ease, padding .35s ease, margin .35s ease;
+}
+
+.about-dog-banner-heading{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    white-space:nowrap;
+    font-family:Avenir, Arial, sans-serif;
+    font-size:22px;
+    line-height:1.1;
+    font-weight:800;
+}
+
+.about-dog-banner-icon{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    line-height:1;
+    filter:grayscale(1) contrast(1.7);
+}
+
+.about-dog-banner-divider{
+    width:1px;
+    height:52px;
+    background:rgba(83,54,0,.28);
+    box-shadow:1px 0 0 rgba(255,255,255,.3);
+}
+
+.about-dog-banner-text{
+    margin:0;
+    font-family:Avenir, Arial, sans-serif;
+    font-size:19px;
+    line-height:1.38;
+    color:#090909;
+}
+
+.about-dog-banner-new{
+    white-space:nowrap;
+}
+
+.about-dog-banner-text a,
+.about-dog-banner-text a:visited{
+    color:#8b0000;
+    font-weight:800;
+    text-decoration:underline;
+    text-underline-offset:2px;
+}
+
+.about-dog-banner-text a:hover{
+    color:#000;
+}
+
+.about-dog-banner-close{
+    width:46px;
+    height:46px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex:0 0 46px;
+    border:0;
+    padding:0;
+    background:transparent;
+    color:#050505;
+    font-family:Arial, sans-serif;
+    font-size:48px;
+    font-weight:300;
+    line-height:1;
+    cursor:pointer;
+    transition:transform .18s ease, opacity .18s ease;
+}
+
+.about-dog-banner-close:hover{
+    transform:scale(1.12);
+    opacity:.65;
+}
+
+.about-dog-banner.is-closing .about-dog-banner-inner{
+    opacity:0;
+    transform:translateY(-12px);
+}
+
+@media (max-width:900px){
+    .about-dog-banner{
+        padding:5px 5px 4px;
+    }
+
+    .about-dog-banner-inner{
+        min-height:0;
+        grid-template-columns:1fr auto;
+        gap:9px 14px;
+        padding:13px 14px 14px;
+    }
+
+    .about-dog-banner-heading{
+        font-size:20px;
+    }
+
+    .about-dog-banner-icon{
+        font-size:28px;
+    }
+
+    .about-dog-banner-divider{
+        display:none;
+    }
+
+    .about-dog-banner-text{
+        grid-column:1 / -1;
+        grid-row:2;
+        font-size:15px;
+        line-height:1.4;
+        padding-right:2px;
+    }
+
+    .about-dog-banner-close{
+        grid-column:2;
+        grid-row:1;
+        width:38px;
+        height:38px;
+        font-size:40px;
+    }
+
+    .about-dog-banner-new{
+        display:block;
+        margin-top:5px;
+        white-space:normal;
+    }
+}
+
+@media (max-width:420px){
+    .about-dog-banner-heading{
+        font-size:18px;
+        gap:8px;
+    }
+
+    .about-dog-banner-text{
+        font-size:14px;
+    }
+}
+
+.timeline-scroll-hint{
+    position:fixed;
+    left:16%;
+    bottom:20px;
+    transform:translateX(-50%);
+
+    background:#222;
+    color:#fff;
+
+    padding:9px 16px;
+    border-radius:5px;
+
+    font-family:Avenir, Arial, sans-serif;
+    font-size:13px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+
+    z-index:9999;
+    pointer-events:none;
+
+    animation:scrollHintBounce 1.3s ease-in-out infinite;
+}
+
+.timeline-scroll-hint{
+    opacity:1;
+    transition:opacity .6s ease;
+}
+
+.timeline-scroll-hint.hide{
+    opacity:0;
+}
+
+@keyframes scrollHintBounce{
+    0%,100%{
+        transform:translate(-50%, 0);
+    }
+
+    50%{
+        transform:translate(-50%, 5px);
+    }
+}
+
+@media(max-width:768px){
+    .timeline-scroll-hint{
+        display:none;
+    }
+}
