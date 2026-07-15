@@ -1045,4 +1045,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }, 75);
 
+    // Control timeline scroll chaining
+    const desktopTimeline =
+        document.querySelector(".timeline-panel");
+
+    if(desktopTimeline){
+
+        desktopTimeline.addEventListener(
+            "wheel",
+            event => {
+
+                if(window.innerWidth <= 768) return;
+
+                const atBottom =
+                    Math.ceil(
+                        desktopTimeline.scrollTop +
+                        desktopTimeline.clientHeight
+                    ) >= desktopTimeline.scrollHeight;
+
+                const scrollingDown =
+                    event.deltaY > 0;
+
+                // Stop downward scrolling from moving the page
+                // after the timeline reaches its bottom.
+                if(scrollingDown && atBottom){
+                    event.preventDefault();
+                }
+
+                // Scrolling upward at the top is intentionally
+                // allowed to move the page and reveal the header.
+
+            },
+            { passive:false }
+        );
+
+    }
 });
