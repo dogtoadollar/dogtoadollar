@@ -24,35 +24,17 @@ body{
     overflow:hidden;
 }
 
-.top-banner-content{
+.top-banner-logo{
     display:flex;
-    flex-direction:column;
+    align-items:center;
+    height:100%;
     z-index:10;
 }
 
-.site-title,
-.site-url{
-    opacity:0;
-    transform:translateX(-40px);
-    animation-fill-mode:forwards;
-}
-
-.site-title{
-    font-family:'Nanum Pen Script', cursive;
-    font-size:34px;
-    color:#d9a300;
-    line-height:0.9;
-    animation:titleReveal 0.8s ease-out forwards;
-}
-
-.site-url{
-    font-family:'Nanum Pen Script', cursive;
-    font-size:28px;
-    color:#fff;
-    line-height:0.9;
-    margin-top:-2px;
-    animation:titleReveal 0.8s ease-out forwards;
-    animation-delay:0.4s;
+.top-banner-logo img{
+    width:125px;
+    height:auto;
+    display:block;
 }
 
 .banner-moon{
@@ -132,7 +114,7 @@ body{
     min-height:100vh;
     position:relative;
     background:#fff;
-    padding-bottom:180px;
+    padding-bottom:80px;
 }
 
 .content-panel{
@@ -415,7 +397,7 @@ body{
 
 .bottom-hero-scene{
     position:relative;
-    width:min(520px, 100%);
+    width:520px;
     height:410px;
     margin:0 auto;
 }
@@ -455,14 +437,14 @@ body{
 /* RIGHT HERO - SHARED PHASE BACKGROUNDS */
 
 .phase-hero-scene-with-bg{
-    width:min(620px, 100%);
+    width:620px;
     overflow:visible;
     isolation:isolate;
 }
 
 .phase-hero-background{
     position:absolute;
-    width:min(700px, 100%);
+    width:700px;
     height:auto;
     left:50%;
     top:49%;
@@ -1615,43 +1597,6 @@ body.is-loading .phase-content{
 }
 
 /* =====================
-   NARROW DESKTOP / TABLET HERO SCALING
-   Keeps the full background visible without overlapping the timeline
-===================== */
-
-html,
-body{
-    max-width:100%;
-    overflow-x:clip;
-}
-
-.timeline-panel,
-.content-panel{
-    min-width:0;
-}
-
-@media (min-width:769px) and (max-width:1100px){
-    .bottom-hero{
-        height:350px;
-    }
-
-    .bottom-hero-scene{
-        transform:scale(.82);
-        transform-origin:top center;
-    }
-}
-
-@media (min-width:769px) and (max-width:900px){
-    .bottom-hero{
-        height:300px;
-    }
-
-    .bottom-hero-scene{
-        transform:scale(.70);
-    }
-}
-
-/* =====================
    MOBILE STYLES
 ===================== */
 
@@ -1674,12 +1619,8 @@ body{
         padding-left:12px;
     }
 
-    .site-title{
-        font-size:22px;
-    }
-
-    .site-url{
-        font-size:20px;
+    .top-banner-logo img{
+        width:105px;
     }
 
     .banner-moon{
@@ -2539,41 +2480,25 @@ body.site-loaded .site-loader{
     }
 }
 
-/* Keep phase backgrounds fully visible on smaller phones */
+/* STOP PHASE BACKGROUNDS FROM OVERLAPPING THE TIMELINE */
 
-@media (max-width:430px){
-
-    .bottom-hero{
-        height:255px;
-    }
-
-    .bottom-hero-scene{
-        transform:scale(.58);
-        transform-origin:top center;
-    }
-
+html,
+body{
+    max-width:100%;
+    overflow-x:hidden;
 }
 
-@media (max-width:390px){
-
-    .bottom-hero{
-        height:230px;
-    }
-
-    .bottom-hero-scene{
-        transform:scale(.52);
-    }
-
+.timeline-panel,
+.content-panel{
+    min-width:0;
 }
 
-@media (max-width:350px){
+.content-panel{
+    overflow:hidden;
+}
 
-    .bottom-hero{
-        height:205px;
-    }
-
-    .bottom-hero-scene{
-        transform:scale(.46);
-    }
-
+.phase-content,
+.bottom-hero{
+    max-width:100%;
+    overflow:hidden;
 }
