@@ -2480,7 +2480,11 @@ body.site-loaded .site-loader{
     }
 }
 
-/* STOP PHASE BACKGROUNDS FROM OVERLAPPING THE TIMELINE */
+
+
+/* =========================
+   FINAL SCROLL + RESPONSIVE FIX
+   ========================= */
 
 html,
 body{
@@ -2488,17 +2492,60 @@ body{
     overflow-x:hidden;
 }
 
-.timeline-panel,
-.content-panel{
-    min-width:0;
+.main-content{
+    height:calc(100vh - 106px);
+    min-height:0;
+    overflow:hidden;
+}
+
+.timeline-panel{
+    height:100%;
+    min-height:0;
+    position:relative;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 
 .content-panel{
-    overflow:hidden;
+    height:100%;
+    min-height:0;
+    overflow-y:auto;
+    overflow-x:hidden;
 }
 
 .phase-content,
-.bottom-hero{
-    max-width:100%;
-    overflow:hidden;
+.bottom-hero,
+.bottom-hero-scene,
+.phase-hero-scene-with-bg{
+    overflow:visible;
+}
+
+@media (max-width:768px){
+
+    .main-content{
+        height:auto;
+        overflow:visible;
+    }
+
+    .content-panel{
+        height:auto;
+        overflow:visible;
+    }
+
+    .bottom-hero{
+        overflow:visible;
+    }
+
+    .bottom-hero-scene-with-bg,
+    .phase-hero-scene-with-bg{
+        width:min(620px, 100vw);
+        height:auto;
+        aspect-ratio:620 / 410;
+    }
+
+    .hero-bottom-background,
+    .phase-hero-background{
+        width:min(700px, 113vw);
+        max-width:none;
+    }
 }
