@@ -354,15 +354,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             activeContent.classList.add("active");
 
-            if(isManualClick && window.innerWidth > 768){
-                const contentPanel = document.querySelector(".content-panel");
+                        if (isManualClick && window.innerWidth > 768) {
 
-                if(contentPanel){
-                    contentPanel.scrollIntoView({
-                        behavior:"smooth",
-                        block:"start"
+                requestAnimationFrame(() => {
+
+                    activeContent.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start"
                     });
-                }
+
+                });
+
             }
 
             if(isManualClick && phaseId !== currentPhaseId){
